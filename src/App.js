@@ -1,22 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const sendReq = async (path) => {
+    await fetch(path, {
+      method: "GET",
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(response => document.getElementById("output").innerHTML = JSON.stringify(response))
+    .catch(err => console.log("Error: " + err));
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={() => { sendReq("/api/category/0"); }}>Send Req</button>
+        <h3>Text output:</h3>
+        <p id="output"></p>
       </header>
     </div>
   );
