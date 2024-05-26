@@ -1,5 +1,7 @@
 import './App.css';
 
+import Footer from './components/Footer.js';
+
 function App() {
 
   const sendReq = async (path) => {
@@ -22,6 +24,7 @@ function App() {
         <h3>Text output:</h3>
         <p id="output"></p>
       </header>
+      <Footer />
     </div>
   );
 }

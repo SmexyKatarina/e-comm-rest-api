@@ -1,0 +1,40 @@
+.footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(40, 40, 40);
+    font-size: 10px;
+}
+
+.footer-project {
+    color: darkgray;
+    margin-left: 15px;
+}
+
+.footer-github {
+    margin-right: 15px;
+}
+
+.footer a {
+    transition: all 0.2s;
+}
+
+.footer a:link {
+    color: white;
+}
+
+.footer a:visited {
+    color: lightgray;
+}
+
+.footer a:hover {
+    color: rgb(120, 120, 120);
+}
+
+.footer a:active {
+    color: darkgreen;
+}
