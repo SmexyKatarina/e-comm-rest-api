@@ -1,0 +1,28 @@
+.categories {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: rgb(60, 60, 60);
+    color: whitesmoke;
+    top: 45px;
+    height: 40px;
+}
+
+.categories div:last-child {
+    border: 0;
+}
+
+.categories * {
+    border-right: 1px solid white;
+    padding: 12px;
+    flex-grow: 2;
+    font-size: 12px;
+    transition: 0.2s all;
+    max-height: 40px;
+}
+
+.categories *:hover {
+    background-color: rgb(40, 40, 40);
+    font-size: 13px;
+}

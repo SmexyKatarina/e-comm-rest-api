@@ -40,9 +40,9 @@ app.use(connectClient);
 
 // GET all users
 app.get('/api/users', async (req, res, next) => {
-    const users = await query(req.client, "SELECT * FROM users");
-    if (users.rowCount > 0) {
-        res.send(users.rows);
+    const result = await query(req.client, "SELECT * FROM users");
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send("Couldn't locate any users.");
     }
@@ -51,9 +51,9 @@ app.get('/api/users', async (req, res, next) => {
 
 // GET a specific user by email
 app.get('/api/users/:userEmail', async (req, res, next) => {
-    const user = await query(req.client, `SELECT * FROM users WHERE email = '${req.params.userEmail}'`); 
-    if (user.rowCount > 0) {
-        res.send(user.rows);
+    const result = await query(req.client, `SELECT * FROM users WHERE email = '${req.params.userEmail}'`); 
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't find user with email ${req.params.userEmail}`});
     }
@@ -62,9 +62,9 @@ app.get('/api/users/:userEmail', async (req, res, next) => {
 
 // GET all orders
 app.get('/api/orders', async (req, res, next) => {
-    const orders = await query(req.client, `SELECT * FROM orders`);
-    if (orders.rowCount > 0) {
-        res.send(orders.rows);
+    const result = await query(req.client, `SELECT * FROM orders`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't locate any orders.`});
     }
@@ -73,9 +73,9 @@ app.get('/api/orders', async (req, res, next) => {
 
 // GET an order by an ID
 app.get('/api/orders/:orderId', async (req, res, next) => {
-    const order = await query(req.client, `SELECT * FROM orders WHERE id = '${req.params.orderId}'`);
-    if (order.rowCount > 0) {
-        res.send(order.rows);
+    const result = await query(req.client, `SELECT * FROM orders WHERE id = '${req.params.orderId}'`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't find order with ID ${req.params.orderId}`});
     }
@@ -84,9 +84,9 @@ app.get('/api/orders/:orderId', async (req, res, next) => {
 
 // GET orders by userId
 app.get('/api/user-orders/:userId', async (req, res, next) => {
-    const orders = await query(req.client, `SELECT * FROM orders WHERE user_id = '${req.params.userId}'`);
-    if (orders.rowCount > 0) {
-        res.send(orders.rows);
+    const result = await query(req.client, `SELECT * FROM orders WHERE user_id = '${req.params.userId}'`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't find orders by User ID ${req.params.userId}`});
     }
@@ -95,9 +95,9 @@ app.get('/api/user-orders/:userId', async (req, res, next) => {
 
 // GET all items
 app.get('/api/items', async (req, res, next) => {
-    const items = await query(req.client, `SELECT * FROM items`);
-    if (items.rowCount > 0) {
-        res.send(items.rows);
+    const result = await query(req.client, `SELECT * FROM items`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't locate any items.`});
     }
@@ -106,20 +106,31 @@ app.get('/api/items', async (req, res, next) => {
 
 // GET a specific item by ID
 app.get('/api/items/:itemId', async (req, res, next) => {
-    const item = await query(req.client, `SELECT * FROM items WHERE id = '${req.params.itemId}'`);
-    if (item.rowCount > 0) {
-        res.send(item.rows);
+    const result = await query(req.client, `SELECT * FROM items WHERE id = '${req.params.itemId}'`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't find item by Item ID ${req.params.itemId}`});
     }
     next();
 });
 
+// GET all catgories
+app.get('/api/categories', async (req, res, next) => {
+    const result = await query(req.client, `SELECT * FROM categories`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
+    } else {
+        res.status(500).send({ error: `Couldn't find any categories.` });
+    }
+    next();
+});
+
 // GET items by category
 app.get('/api/category/:categoryId', async (req, res, next) => {
-    const items = await query(req.client, `SELECT * FROM items WHERE category_id = '${req.params.categoryId}'`);
-    if (items.rowCount > 0) {
-        res.send(items.rows);
+    const result = await query(req.client, `SELECT * FROM items WHERE category_id = '${req.params.categoryId}'`);
+    if (result.rowCount > 0) {
+        res.send({ result: result.rows });
     } else {
         res.status(500).send({ error: `Couldn't find items by Category ID ${req.params.categoryId}`});
     }

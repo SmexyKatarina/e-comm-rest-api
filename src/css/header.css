@@ -2,7 +2,6 @@
     background-color: rgba(20, 20, 20, 0.95);
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-direction: row;
     max-height: 40px;
 }
@@ -11,5 +10,6 @@
     margin-left: 10px;
     font-size: 20px;
     color: white;
+    align-self: center;
     font-family: 'Courier New', Courier, monospace
 }
