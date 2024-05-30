@@ -1,0 +1,30 @@
+.menu-dark {
+    min-width: 75px;
+}
+
+.menu-dark * {
+    transition: 0.2s all;
+}
+
+.selected {
+    background-color: rgb(15, 15, 15);
+    color: lightgray;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.selected:hover {
+    background-color: rgb(40, 40, 40);
+    color: darkgray;
+}
+
+.menu-item-dark {
+    background-color: rgb(30, 30, 30);
+    padding: 10px;
+    color: lightgray;
+}
+
+.menu-item-dark:hover {
+    background-color: rgb(60, 60, 60);
+}
+

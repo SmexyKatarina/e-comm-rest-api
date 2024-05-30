@@ -1,5 +1,6 @@
 import './App.css';
 
+import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <button onClick={() => { sendReq("/api/category/0"); }}>Send Req</button>
         <h3>Text output:</h3>
