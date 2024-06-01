@@ -52,10 +52,8 @@ export const getCategoriesFromAPI = () => async (dispatch) => {
 export const getItemsFromCategory = (category) => async (dispatch) => {
     dispatch(changeCategory());
     //const categories = useSelector((state) => state.categories.categories);
-    console.log(category);
     const req = await fetch(category === "all" ? `/api/items` : `/api/category/${category}`);
     const res = await req.json();
-    console.log(res);
     dispatch(res.result ? successChangeCategory({ items: { ...res.result }, category: category }) : failedChangeCategory());
 }
 

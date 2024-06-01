@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import ItemCard from './ItemCard.js';
 
+import '../../css/itemContainer.css';
+
 const ItemContainer = (props) => {
 
     const { rowAmount, colAmount } = props;
@@ -18,7 +20,6 @@ const ItemContainer = (props) => {
             let cells = [];
             for (let y = 0; y < colAmount; y++) {
                 if (count >= length) break;
-                console.log(count);
                 cells.push(<ItemCard item={items[count]} key={count}/>);
                 count++;
             }
@@ -27,12 +28,17 @@ const ItemContainer = (props) => {
         return createElement('div', { className: "items" }, ...rows);
     }
 
+    let x = 1; // Testing purposes
+
+    let amt = rowAmount * colAmount;
+    let len = Object.keys(items).length;
+
     return (
         <>
             <div className="item-container">
                 {containerBuilder()}
                 <div className="item-amount">
-                    <p>Showing </p>
+                    <p><span className="prev-page">←</span> {(amt * x) - amt + 1 > len ? len : (amt * x) - amt + 1} - {amt * x > len ? len : amt * x} of {len} <span className="next-page">→</span></p>
                 </div>
             </div>
         </>

@@ -1,0 +1,36 @@
+.items {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-amount {
+    color: white;
+    font-size: 18px;
+}
+
+.inactive {
+    color: rgb(40, 40, 40);
+}
+
+.next-page:hover {
+    color: rgba(200, 200, 200, 0.5);
+}
+
+.prev-page:hover {
+    color: rgba(200, 200, 200, 0.5);
+}
+
+.next-page {
+    font-size: 25px;
+}
+
+.prev-page {
+    font-size: 25px;
+}
