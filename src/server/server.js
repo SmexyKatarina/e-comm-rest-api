@@ -117,7 +117,7 @@ app.get('/api/items/:itemId', async (req, res, next) => {
 
 // GET all catgories
 app.get('/api/categories', async (req, res, next) => {
-    const result = await query(req.client, `SELECT * FROM categories`);
+    const result = await query(req.client, `SELECT * FROM categories ORDER BY id`);
     if (result.rowCount > 0) {
         res.send({ result: result.rows });
     } else {

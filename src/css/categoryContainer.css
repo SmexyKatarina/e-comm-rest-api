@@ -26,3 +26,7 @@
     background-color: rgb(40, 40, 40);
     font-size: 13px;
 }
+
+.category-active {
+    color: green;
+}
