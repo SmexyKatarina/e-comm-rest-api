@@ -34,3 +34,21 @@
 .prev-page {
     font-size: 25px;
 }
+
+.loading-card {
+    display: flex;
+    border: 1px white solid;
+    flex: 2 0 width;
+    height: 250px;
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: transparent;
+    padding: 0;
+    color: white;
+}
+
+.error {
+    color: red;
+}

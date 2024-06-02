@@ -9,7 +9,7 @@ const ItemContainer = (props) => {
 
     const { rowAmount, colAmount } = props;
 
-    const { items } = useSelector((state) => state.categories);
+    const { items, isLoading, hasError } = useSelector((state) => state.categories);
 
     const containerBuilder = () => {
         let count = 0;
@@ -32,6 +32,44 @@ const ItemContainer = (props) => {
 
     let amt = rowAmount * colAmount;
     let len = Object.keys(items).length;
+
+    if (hasError) {
+        return (
+            <div className="item-container">
+                <div className="row-container">
+                    <div className="loading-card error">
+                        <p>Error loading items.</p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (isLoading) {
+        return (
+            <div className="item-container">
+                <div className="row-container">
+                    <div className="loading-card">
+                        <p>
+                            Loading items...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (len === 0) {
+        return (
+            <div className="item-container">
+                <div className="row-container">
+                    <div className="loading-card">
+                        <p>No items found in this category</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <>

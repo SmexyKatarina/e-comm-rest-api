@@ -4,24 +4,18 @@ import '../../css/menu.css';
 
 const Menu = (props) => {
     
-    const { values } = props;
+    const { setLogin } = props;
     
     useEffect(() => {
         let menu = document.querySelector('.menu-dark');
         let dropDown = document.querySelector('.drop-down');
         let items = document.querySelector('.select-items');
-        let options = items.querySelectorAll('.menu-item-dark');
 
         let id = -1;
 
         const dropMenu = () => {
-            items.style.display = items.style.display === 'inline' ? 'none' : 'inline';
+            items.style.display = items.style.display === 'flex' ? 'none' : 'flex';
             dropDown.textContent = dropDown.textContent === '||' ? '=' : '||';
-        }
-
-        const optionFunction = (e) => {
-            dropDown.textContent = "=";
-            items.style.display = 'none';
         }
 
         const windowFunction = (e) => {
@@ -48,17 +42,12 @@ const Menu = (props) => {
 
         dropDown.addEventListener('click', dropMenu);
 
-        options.forEach((option) => {
-            option.addEventListener('click', optionFunction);
-        })
-
         window.addEventListener('click', windowFunction);
 
         return () => {
             items.removeEventListener('mouseout', mouseOutMenu);
             items.removeEventListener('mouseover', mouseOverMenu);
             dropDown.removeEventListener('click', dropMenu);
-            options.forEach((x) => x.removeEventListener('click', optionFunction));
             window.removeEventListener('click', windowFunction);
         }
     }, []);
@@ -68,11 +57,8 @@ const Menu = (props) => {
             <div className="menu-dark">
                 <div className="drop-down">=</div>
                 <div className="select-items" style={{ display: "none" }}>
-                    {values.map((x, index) => {
-                        return (
-                                <div className="menu-item-dark" key={index}>{x}</div>
-                        );
-                    })}
+                    <div className="menu-item-dark" onClick={() => { setLogin(false);}}>Home</div>
+                    <div className="menu-item-dark" onClick={() => { setLogin(true); }}>Login</div>
                 </div>
             </div>
         </>

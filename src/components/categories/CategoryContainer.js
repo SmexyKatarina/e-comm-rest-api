@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategoriesFromAPI, getItemsFromCategory } from '../../store/categoriesSlice';
+import { emptyItems, getCategoriesFromAPI, getItemsFromCategory } from '../../store/categoriesSlice';
 
 import '../../css/categoryContainer.css';
 
@@ -11,7 +11,7 @@ const CategoryContainer = () => {
 
     const dispatch = useDispatch();
 
-    const { categories } = useSelector((state) => state.categories);
+    const { categories, isLoading, hasError, items } = useSelector((state) => state.categories);
 
     useEffect(() => {
         dispatch(getCategoriesFromAPI());
@@ -19,8 +19,29 @@ const CategoryContainer = () => {
 
     useEffect(() => {
         const index = categories.map(x => x.category_name).indexOf(active);
-        dispatch(getItemsFromCategory(active === "all" ? "all" : index));
+        if (index !== -1 && categories[index].num_of_items !== 0) {
+            dispatch(getItemsFromCategory(active === "all" ? "all" : index));
+        } else {
+            dispatch(emptyItems());
+        }
+        document.title = active === "all" ? "Home ― Rest-y" : `${active} ― Rest-y`;
     }, [dispatch, categories, active]);
+
+    if (hasError) {
+        return (
+            <div className="categories">
+                <div className="loading-tile error">Error loading categories.</div>
+            </div>
+        );
+    }
+
+    if (isLoading) {
+        return (
+            <div className="categories">
+                <div className="loading-tile">Loading...</div>
+            </div>
+        );
+    }
 
     return (
         <>

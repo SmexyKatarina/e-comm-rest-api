@@ -13,7 +13,7 @@
     border: 0;
 }
 
-.categories * {
+.categories .category-tile {
     border-right: 1px solid white;
     padding: 12px;
     flex-grow: 2;
@@ -22,11 +22,23 @@
     max-height: 40px;
 }
 
-.categories *:hover {
+.categories .category-tile:hover {
     background-color: rgb(40, 40, 40);
     font-size: 13px;
 }
 
 .category-active {
     color: green;
+}
+
+.loading-tile {
+    padding: 12px;
+    flex-grow: 2;
+    font-size: 12px;
+    transition: 0.2s all;
+    max-height: 40px;
+}
+
+.error {
+    color: rgb(255, 44, 44);
 }

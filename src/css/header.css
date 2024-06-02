@@ -14,3 +14,7 @@
     align-self: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.logo:hover {
+    cursor: pointer;
+}

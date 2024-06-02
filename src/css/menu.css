@@ -37,4 +37,5 @@
     position: absolute;
     right: 100px;
     top: 0;
+    flex-direction: row-reverse;
 }

@@ -37,10 +37,13 @@ const categories = createSlice({
             state.isLoading = false;
             state.hasError = true;
         },
+        emptyItems: (state) => {
+            state.items = {};
+        }
     },
 });
 
-export const { fetchCategories, successFetchCategories, failedFetchCategories, changeCategory, successChangeCategory, failedChangeCategory } = categories.actions;
+export const { fetchCategories, successFetchCategories, failedFetchCategories, changeCategory, successChangeCategory, failedChangeCategory, emptyItems } = categories.actions;
 
 export const getCategoriesFromAPI = () => async (dispatch) => {
     dispatch(fetchCategories());

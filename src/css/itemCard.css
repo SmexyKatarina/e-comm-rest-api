@@ -1,7 +1,7 @@
 .item-card {
     display: flex;
     flex-direction: column;
-    border: 2px white solid;
+    border: 1px white solid;
     flex: 2 0 width;
     height: 250px;
     width: 350px;
@@ -17,7 +17,6 @@
 .item-card:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border: 1px darkgray solid;
-    padding: 0.8px;
 }
 
 .item-card p {
