@@ -4,6 +4,7 @@
     justify-content: space-between;
     flex-direction: row;
     max-height: 40px;
+    z-index: 100;
 }
 
 .logo {
@@ -11,5 +12,5 @@
     font-size: 20px;
     color: white;
     align-self: center;
-    font-family: 'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace;
 }

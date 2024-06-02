@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Menu from './Menu.js';
+import Menu from './menu/Menu.js';
 
 import '../css/header.css';
 
@@ -10,7 +10,7 @@ const Header = () => {
         <>
             <div className="header">
                 <div className="logo">Rest-y</div>
-                <Menu values={["hello", "world"]}/>
+                <Menu values={["Login"]}/>
             </div>
         </>
     );
