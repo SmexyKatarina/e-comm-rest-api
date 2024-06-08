@@ -7,6 +7,12 @@
     z-index: 100;
 }
 
+.user-display-name {
+    color: white;
+    font-size: 12px;
+    align-self: center;
+}
+
 .logo {
     margin-left: 10px;
     font-size: 20px;

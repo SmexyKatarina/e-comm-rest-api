@@ -4,7 +4,7 @@ import '../../css/menu.css';
 
 const Menu = (props) => {
     
-    const { setLogin } = props;
+    const { setLogin, setRegister, setUser, userInfo } = props;
     
     useEffect(() => {
         let menu = document.querySelector('.menu-dark');
@@ -52,13 +52,29 @@ const Menu = (props) => {
         }
     }, []);
 
+    if (userInfo.authenticated) {
+        return (
+            <>
+                <div className="menu-dark">
+                    <div className="drop-down">=</div>
+                    <div className="select-items" style={{ display: "none" }}>
+                        <div className="menu-item-dark" onClick={() => { setLogin(false); setRegister(false); }}>Home</div>
+                        <div className="menu-item-dark" onClick={async () => { await fetch("/logout", {
+                            method: 'POST'
+                        }); setUser({authenticated: false, display_name: null}); setLogin(false); setRegister(false); }}>Logout</div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+
     return (
         <>
             <div className="menu-dark">
                 <div className="drop-down">=</div>
                 <div className="select-items" style={{ display: "none" }}>
-                    <div className="menu-item-dark" onClick={() => { setLogin(false);}}>Home</div>
-                    <div className="menu-item-dark" onClick={() => { setLogin(true); }}>Login</div>
+                    <div className="menu-item-dark" onClick={() => { setLogin(false); setRegister(false); }}>Home</div>
+                    <div className="menu-item-dark" onClick={() => { setLogin(true); setRegister(false); }}>Login</div>
                 </div>
             </div>
         </>

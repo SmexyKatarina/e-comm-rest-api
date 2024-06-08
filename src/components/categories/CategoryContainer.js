@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { emptyItems, getCategoriesFromAPI, getItemsFromCategory } from '../../store/categoriesSlice';
+import { emptyItems, getCategoriesFromAPI, getItemsFromCategory } from '../../store/categoriesSlice.js';
 
 import '../../css/categoryContainer.css';
 
@@ -11,16 +11,19 @@ const CategoryContainer = () => {
 
     const dispatch = useDispatch();
 
-    const { categories, isLoading, hasError, items } = useSelector((state) => state.categories);
+    const { categories, isLoading, hasError } = useSelector((state) => state.categories);
 
     useEffect(() => {
         dispatch(getCategoriesFromAPI());
     }, [dispatch]);
 
     useEffect(() => {
+        if (categories.length === 0) return;
         const index = categories.map(x => x.category_name).indexOf(active);
         if (index !== -1 && categories[index].num_of_items !== 0) {
-            dispatch(getItemsFromCategory(active === "all" ? "all" : index));
+            dispatch(getItemsFromCategory(index));
+        } else if (active === "all") {
+            dispatch(getItemsFromCategory("all"))
         } else {
             dispatch(emptyItems());
         }
