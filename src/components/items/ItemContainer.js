@@ -7,7 +7,7 @@ import '../../css/itemContainer.css';
 
 const ItemContainer = (props) => {
 
-    const { rowAmount, colAmount } = props;
+    const { rowAmount, colAmount, userInfo } = props;
 
     const { items, isLoading, hasError } = useSelector((state) => state.categories);
 
@@ -20,7 +20,7 @@ const ItemContainer = (props) => {
             let cells = [];
             for (let y = 0; y < colAmount; y++) {
                 if (count >= length) break;
-                cells.push(<ItemCard item={items[count]} key={count}/>);
+                cells.push(<ItemCard item={items[count]} key={count} listId={count} userInfo={userInfo}/>);
                 count++;
             }
             rows.push(createElement('div', { className: 'row-container' }, ...cells));

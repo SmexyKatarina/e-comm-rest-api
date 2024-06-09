@@ -36,7 +36,7 @@ function App() {
         <div className="App">
         <Header setLogin={setLogin} loginVisible={loginVisible} setRegister={setRegister} registerVisible={registerVisible} setUser={setUser} userInfo={userInfo}/> 
             <CategoryContainer />
-            <ItemContainer rowAmount={3} colAmount={3}/>
+            <ItemContainer rowAmount={3} colAmount={3} userInfo={userInfo}/>
         <Footer />
         </div>
     );
