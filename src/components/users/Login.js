@@ -29,7 +29,6 @@ const Login = (props) => {
                     body: JSON.stringify(values)
                 });
                 const res = await req.json();
-                console.log(res);
                 if (req.ok) {
                     setUser({ authenticated: true, display_name: res.display_name });
                     setRegister(false);

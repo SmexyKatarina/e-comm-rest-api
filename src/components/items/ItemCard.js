@@ -25,7 +25,6 @@ const ItemCard = (props) => {
                 results.push(e.id);
             });
         }
-        console.log(results);
         if (cart.length > 0 && results.includes(listId)) {
             const cartItem = cart.filter(x => x.id === listId)[0];
             return (
