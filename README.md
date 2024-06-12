@@ -15,11 +15,6 @@
   <p align="center">
     A very simple E-Commerce app designed with REST API connected to an external database to retrieve and insert data to handle simple information exchange.
     <br />
-    <a href="https://github.com/smexykatarina/e-comm-rest-api"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/smexykatarina/e-comm-rest-api">View Demo</a>
-    ·
     <a href="https://github.com/smexykatarina/e-comm-rest-api/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/smexykatarina/e-comm-rest-api/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
