@@ -11,10 +11,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/smexykatarina/e-comm-rest-api">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
 <h3 align="center">E-Comm with REST API</h3>
   <p align="center">
     A very simple E-Commerce app designed with REST API connected to an external database to retrieve and insert data to handle simple information exchange.
@@ -61,7 +57,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,12 +71,10 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -115,8 +108,6 @@ This is an example of how to list things you need to use the software and how to
 6. Run the front-end next by running `npm start`. This runs the front-end of the site with code changes being check and re-rendering the front-end when there is.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
